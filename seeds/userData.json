@@ -1,0 +1,20 @@
+[
+    {
+        "username": "fattony88",
+        "fullname": "Tony",
+        "email": "tony@hotmail.com",
+        "password": "password12345"
+    },
+    {
+        "username": "mister marvelous",
+        "fullname": "James",
+        "email": "james@gmail.com",
+        "password": "password12345"
+    },
+    {
+        "username": "codeQueen",
+        "fullname": "Alicia",
+        "email": "alicia@gmail.com",
+        "password": "password12345"
+    }
+]

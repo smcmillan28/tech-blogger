@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Artificial Intelligence",
+        "description": "It was the best of times.  It was the worst of times.  Or will it be the worst of times?  I can't remember how the saying goes.  AI's rapid development is taking over the world.  Look out humans.",
+        "user_id": 1
+    },
+    {
+        "title": "Stark Industries",
+        "description": "Elon Musk and Jeff Bezos are definitely as rich as Tony Stark... Why aren't they flying around in a suit yet?",
+        "user_id": 2
+    },
+    {
+        "title": "What is your favorite coding language?",
+        "description": "Mine is JavaScript.  You are able to accomplish so much with just one language.  Any other challengers?",
+        "user_id": 3
+    }
+]
