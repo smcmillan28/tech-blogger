@@ -26,10 +26,27 @@
             <a style="margin: 1%" href="/logout" id="logout">logout</a> |
             <!-- {{else}} -->
             <a style="margin: 1%" href="/login">login</a>
-            <!-- {{/if}} --> 
+            <!-- {{/if}} -->
         </nav>
     </header>
     <main>
+
+        <div style="margin: 0 auto; width: 70%; padding: 20px;">
+            <h4 style="text-align: center;">the internet is full of ideas...</h4>
+        </div>
+
+        <div style="margin: 0 auto; width: 70%; border: 1px solid black; padding: 20px; border-radius: 5px;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="blog-title">
+                <label for="blog-title">what are you thinking about?</label>
+            </div>
+            <div class="form-floating">
+                <textarea class="form-control" id="blog-post"
+                    style="height: 100px"></textarea>
+                <label for="blog-post">go ahead... expand</label>
+            </div>
+            <button type="button" class="btn btn-dark" style="width: 100%; margin-top: 10px;" id="post-button">share the knowledge</button>
+        </div>
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
