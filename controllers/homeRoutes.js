@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -81,9 +81,17 @@ router.get('/login', (req, res) => {
 
 router.get('/post', (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('/login');
   } else {
     res.render('post', { logged_in: req.session.logged_in });
+  }
+});
+
+router.get('/homepage', (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+  } else {
+    res.render('homepage', { logged_in: req.session.logged_in });
   }
 });
 

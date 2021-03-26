@@ -4,7 +4,7 @@
 <div>
     <div class="container" style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
         <h5 style="color:white;">now that you're with us, here are some of the things you can do...</h5>
-        <p style="color:white;">- navigate back to the <a href="/homepage">homepage</a> where you can view all blog posts<br>
+        <p style="color:white;">- navigate back to the <a href="/">homepage</a> where you can view all blog posts<br>
         - leave a comment on an existing blog post, but please, keep it clean<br>
         - most importantly, share your thoughts with a brand new <a href="/post">post!</a><br>
         - if you want to add another post, simply navigate back to this page by clicking the profile tab up top<br>
@@ -12,3 +12,24 @@
         </p>
     </div>
 </div>
+
+<div style="margin: 0 auto; width: 70%; padding: 20px;">
+    <h4 style="text-align: center;">view/edit/delete your posts...</h4>
+</div>
+
+{{#each blogs as |blog| }}
+<div class="container" style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created on</em> {{format_date blog.date_created}}</h6>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <p style="color: white;">
+                {{blog.description}}
+            </p>
+        </div>
+    </div>
+</div>
+{{/each}}
