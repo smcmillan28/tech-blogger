@@ -4,10 +4,12 @@
 </div>
 
 {{#each blogs as |blog| }}
-<div class="container" style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
+<div class="container"
+    style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
     <div class="row mb-4">
         <div class="col-md-12">
-            <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created by</em> {{blog.user.username}} on {{format_date blog.date_created}}</h6>
+            <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created by</em>
+                {{blog.user.username}} on {{format_date blog.date_created}}</h6>
         </div>
     </div>
     <div class="row mb-4">
@@ -17,5 +19,17 @@
             </p>
         </div>
     </div>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <p style="color: white; text-decoration:underline"><em>comments</em></p>
+        </div>
+    </div>
+    {{#each blogs as |blog| }}
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <p style="color: white; font-size: small;">{{blog.comment.content}}</p><hr style="color: white;">
+        </div>
+    </div>
+    {{/each}}
 </div>
 {{/each}}
