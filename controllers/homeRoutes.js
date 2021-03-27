@@ -62,7 +62,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blogs/:id', async (req, res) => {
+router.get('/blogs/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -119,6 +119,14 @@ router.get('/post', (req, res) => {
     res.redirect('/login');
   } else {
     res.render('post', { logged_in: req.session.logged_in });
+  }
+});
+
+router.get('/comment', (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+  } else {
+    res.render('comment', { logged_in: req.session.logged_in });
   }
 });
 
