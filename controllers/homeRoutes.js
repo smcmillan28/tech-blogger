@@ -6,12 +6,7 @@ router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user and comment data
     const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['fullname', 'username'],
-        },
-      ],
+      include: [{all: true}],
     });
 
     // Serialize data so the template can read it
@@ -20,6 +15,46 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', {
       blogs,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all users and JOIN with blog and comment data
+    const userData = await User.findAll({
+      include: [{all: true}],
+    });
+
+    // Serialize data so the template can read it
+    const users = userData.map((user) => user.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', {
+      users,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all comments and JOIN with user and blog data
+    const commentData = await Comment.findAll({
+      include: [{all: true}],
+    });
+
+    // Serialize data so the template can read it
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    res.render('homepage', {
+      comments,
       logged_in: req.session.logged_in
     });
   } catch (err) {

@@ -4,12 +4,12 @@
 </div>
 
 {{#each blogs as |blog| }}
-<div class="container"
+<div class="container" id="blog-header"
     style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
     <div class="row mb-4">
         <div class="col-md-12">
             <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created by</em>
-                {{blog.user.username}} on {{format_date blog.date_created}}</h6>
+                {{blog.user.username}} (user #{{blog.user_id}}) on {{format_date blog.date_created}}</h6>
         </div>
     </div>
     <div class="row mb-4">
@@ -24,12 +24,14 @@
             <p style="color: white; text-decoration:underline"><em>comments</em></p>
         </div>
     </div>
-    {{#each blogs as |blog| }}
+    {{#each comments as |comment| }}
     <div class="row mb-4">
         <div class="col-md-12">
-            <p style="color: white; font-size: small;">{{blog.user.comment.content}}</p><hr style="color: white;">
+            <p style="color: white; font-size: small;">{{comment.content}} <em> posted by user #{{comment.user_id}}</em>{{comment.username}} on {{format_date comment.date_created}}</p><hr style="color: white;">
         </div>
     </div>
     {{/each}}
 </div>
 {{/each}}
+
+<script src="./js/comment.js"></script>
