@@ -11,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
-      host: 'localhost',
+      host: process.env.CLEAR_DATABASE_URL,
       dialect: 'mysql',
       port: 3306
     }
@@ -19,3 +19,12 @@ if (process.env.JAWSDB_URL) {
 }
 
 module.exports = sequelize;
+
+// CLEAR DB URL
+
+// mysql://b555b82140c4c7:2cefa23e@us-cdbr-east-03.cleardb.com/heroku_fcc684b2ff11741?reconnect=true
+
+// user: b555b82140c4c7
+// pw: 2cefa23e
+// host: us-cdbr-east-03.cleardb.com
+// database: heroku_fcc684b2ff11741
