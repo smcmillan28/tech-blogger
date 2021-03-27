@@ -9,14 +9,14 @@ const mysql = require('mysql');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-// const connection = mysql.createConnection({
-//   host: 'us-cdbr-east-03.cleardb.com',
-//   user: 'b555b82140c4c7',
-//   password: '2cefa23e',
-//   database: 'heroku_fcc684b2ff11741'
-// });
+const connection = mysql.createConnection({
+  host: 'us-cdbr-east-03.cleardb.com',
+  user: 'b555b82140c4c7',
+  password: '2cefa23e',
+  database: 'heroku_fcc684b2ff11741'
+});
 
-// connection.connect();
+connection.connect();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
