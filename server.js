@@ -16,8 +16,6 @@ const connection = mysql.createConnection({
   database: 'heroku_fcc684b2ff11741'
 });
 
-connection.connect();
-
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -46,6 +44,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Now listening  on http://localhost:${PORT}`));
-});
+// sequelize.sync({ force: false }).then(() => {
+//   app.listen(PORT, () => console.log(`Now listening  on http://localhost:${PORT}`));
+// });
+
+connection.connect();
