@@ -3,6 +3,7 @@
     <p style="text-align: center;">We've got a few of our own. </p><br>
 </div>
 
+{{#if logged_in}}
 {{#each blogs as |blog| }}
 <div class="container" id="blog-header"
     style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
@@ -21,17 +22,31 @@
     </div>
     <div class="row mb-4">
         <div class="col-md-12">
-            <p style="color: white; text-decoration:underline"><em>comments</em></p>
+            <p style="color: white; text-decoration:underline"><em>comments</em></a></p>
         </div>
     </div>
     {{#each comments as |comment| }}
     <div class="row mb-4">
         <div class="col-md-12">
-            <p style="color: white; font-size: small;">{{comment.content}} <em> posted by user #{{comment.user_id}}</em>{{comment.username}} on {{format_date comment.date_created}}</p><hr style="color: white;">
+            <p style="color: white; font-size: small;">{{comment.content}} <em> posted by user
+                    #{{comment.user_id}}</em>{{comment.username}} on {{format_date comment.date_created}}</p>
+            <hr style="color: white;">
         </div>
     </div>
     {{/each}}
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control comment-content">
+        <label for="comment-content">add comment to this post</label>
+        <button type="button" class="btn btn-dark comment-button" style="width: 100%; margin-top: 10px;">add your
+            comment</button>
+    </div>
 </div>
 {{/each}}
+{{else}}
+<div style="margin: 0 auto; width: 70%; padding: 20px;">
+    <p style="text-align: center;">please login to participate</p><br>
+</div>
+{{/if}}
+
 
 <script src="./js/comment.js"></script>
