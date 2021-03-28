@@ -124,7 +124,7 @@ router.get('/post', (req, res) => {
 
 router.get('/comment', (req, res) => {
   if (!req.session.logged_in) {
-    res.redirect('/login');
+    res.redirect('/login'); 
   } else {
     res.render('comment', { logged_in: req.session.logged_in });
   }
