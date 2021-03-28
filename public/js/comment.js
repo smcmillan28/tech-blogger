@@ -23,9 +23,9 @@ const commentPoster = async (event) => {
     }
 };
 
-const sayHello = () => {
-    console.log("hello");
-}
+// const sayHello = () => {
+//     console.log("hello");
+// };
 
 document
     .querySelector('.comment-button')

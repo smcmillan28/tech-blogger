@@ -65,17 +65,12 @@ router.get('/', async (req, res) => {
 router.get('/blogs/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['fullname', 'username'],
-        },
-      ],
+      include: [{all: true}],
     });
 
     const blog = blogData.get({ plain: true });
 
-    res.render('post', {
+    res.render('blog', {
       ...blog,
       logged_in: req.session.logged_in
     });
