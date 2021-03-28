@@ -15,27 +15,33 @@
 </div>
 
 <div style="margin: 0 auto; width: 70%; padding: 20px;">
-    <h4 style="text-align: center;">view/edit/delete your posts...</h4>
+    <h4 style="text-align: center;">view/delete your posts...</h4>
 </div>
 
-{{#each blogs as |blog| }}
-<div class="container"
-    style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created on</em> {{format_date
-                blog.date_created}}</h6>
+{{#if blogs.length}}
+<div class="blog-list">
+    <h5 style="text-align: center;">your current blogs:</h5>
+    {{#each blogs as |blog| }}
+    <div class="container"
+        style="border: 1px solid black; padding: 10px; border-radius: 5px; background-color: black; margin: 10px;">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h6 style="text-decoration: underline; color: white;">"{{blog.title}}" <em>created on</em> {{format_date
+                    blog.date_created}}</h6>
+            </div>
         </div>
-    </div>
-    <div class="row mb-4">
-        <div class="col-md-12">
-            <p style="color: white;">
-                {{blog.description}}
-            </p>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <p style="color: white;">
+                    {{blog.description}}
+                </p>
+            </div>
         </div>
+        <button data-id="{{blog.id}}" style="width:100%;">delete this post</button>
     </div>
-    <button type="button" class="btn btn-dark" style="width: 100%; margin-top: 10px;">delete post</button>
+    {{/each}}
 </div>
-{{/each}}
+{{/if}}
 
-<script src="./js/delete.js"></script>
+<!-- Need to add script file for deleting -->
+<script src="./js/destroy.js"></script>
